@@ -1,0 +1,47 @@
+.section {
+  text-align: center;
+}
+
+p,
+.email {
+  font-size: 1.2em;
+  margin: 30px;
+}
+
+.progress-bar {
+  -webkit-transition: all 2s;
+  -moz-transition: all 2s;
+  transition: all 2s;
+}
+
+.description {
+  text-align: left;
+  visibility: hidden;
+  position: absolute;
+  left: 100px;
+  background-color: white;
+  padding: 10px 10px 10px 0px;
+  border: 1px solid black;
+  opacity: 0.9;
+  z-index: 200;
+}
+
+#skillslist {
+  list-style-type: none;
+  padding: 0px;
+  margin: 20px 50px 20px 50px;
+}
+
+#workList {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.workContent {
+  text-align: center;
+  margin-bottom: 10px;
+}

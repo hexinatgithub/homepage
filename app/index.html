@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jquery</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="/bower_components/fullpage.js/jquery.fullPage.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+</head>
+
+<body>
+  <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <div id="fullpage">
+    <div class="section">
+      <h1>何鑫</h1>
+      <p>程序是打开另一个世界的大门</p>
+      <p>在程序的世界里，我可以大胆的想象，自由的创造</p>
+      <p>前端工程师</p>
+      <p>一腔热血的激情 · 一夜失眠的创意 · 一个像素的执着</p>
+      <a href="mailto:hexinWorkConnect@hotmail.com" class="email">hexinWorkConnect@hotmail.com</a>
+    </div>
+    <div class="section">
+      <h2>专业技能</h2>
+      <div id="skills"></div>
+    </div>
+    <div class="section">
+      <h1>工作经历</h1>
+      <div id="workExperience"></div>
+    </div>
+    <div class="section container">
+      <h1>联系方式</h1>
+      <br>
+      <div class="row">
+        <div class="col-xs-6 col-md-6">
+          <div class="thumbnail">
+            <img src="./images/image.jpg" alt="email" style="height: 250px;">
+            <div class="caption">
+              <p>电子邮箱</p>
+              <a href="mailto:hexinWorkConnect@hotmail.com">hexinWorkConnect@hotmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <div class="thumbnail">
+            <img src="./images/github.jpeg" alt="github" style="height: 250px;">
+            <div class="caption">
+              <p>gitHub</p>
+              <a href="https://github.com/hexinatgithub">gitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal-list">
+  </div>
+
+  <script id="skills-content" type="text/x-handlebars-template">
+    {{#skilllist skills id="skillslist"}}
+    <div class="progress progress-skill" skill="{{skillName}}" index="{{@index}}">
+      <div class="progress-bar {{color}} progress-bar-striped" role="progressbar " aria-valuenow="{{skillPoint}} " aria-valuemin="0 " aria-valuemax="100">
+        {{skillName}}:{{skillPoint}}
+      </div>
+      <div class="description" id="{{@index}}-description">
+        {{#descriptionList description}} {{/descriptionList}}
+      </div>
+    </div>
+    {{/skilllist}}
+  </script>
+
+  <script id="workExperience-content" type="text/x-handlebars-template">
+    {{#workExperienceList experience id="workList"}}
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#{{@index}}-work">
+      {{company}}
+    </button> {{/workExperienceList}}
+  </script>
+
+  <script id="modal-list-content" type="text/x-handlebars-template">
+    {{#modalList experience}}
+    <div class="modal fade" id="{{@index}}-work" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">{{company}}</h4>
+          </div>
+          <div class="modal-body">
+            <h4 class="workContent">
+              {{workContent}}
+            </h4>
+            <div>
+              {{#list job}}{{this}}{{/list}}
+            </div>
+            <div>
+              离职原因:{{reasonForLeave}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/modalList}}
+  </script>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/fullpage.js/jquery.fullPage.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/plugins.js -->
+  <script src="/bower_components/bootstrap/js/affix.js "></script>
+  <script src="/bower_components/bootstrap/js/alert.js "></script>
+  <script src="/bower_components/bootstrap/js/dropdown.js "></script>
+  <script src="/bower_components/bootstrap/js/tooltip.js "></script>
+  <script src="/bower_components/bootstrap/js/modal.js "></script>
+  <script src="/bower_components/bootstrap/js/transition.js "></script>
+  <script src="/bower_components/bootstrap/js/button.js "></script>
+  <script src="/bower_components/bootstrap/js/popover.js "></script>
+  <script src="/bower_components/bootstrap/js/carousel.js "></script>
+  <script src="/bower_components/bootstrap/js/scrollspy.js "></script>
+  <script src="/bower_components/bootstrap/js/collapse.js "></script>
+  <script src="/bower_components/bootstrap/js/tab.js "></script>
+  <script src="/bower_components/fullpage.js/vendors/jquery.easings.min.js "></script>
+  <script src="/bower_components/fullpage.js/vendors/jquery.slimscroll.min.js "></script>
+  <script src="/bower_components/fullpage.js/jquery.fullPage.min.js "></script>
+  <script src="/bower_components/handlebars/handlebars.js "></script>
+  <!-- endbuild -->
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js "></script>
+  <!-- endbuild -->
+</body>
+
+</html>
